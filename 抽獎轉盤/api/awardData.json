@@ -1,0 +1,34 @@
+{
+    "case01":[
+    {"key":"咬一口","name":"咬一口",  "ratio":1, "url":"" },
+    {"key":"林檎","name":"林檎",    "ratio":1, "url":"" },
+    {"key":"名月","name":"名月",    "ratio":1, "url":"" },
+    {"key":"紅榮","name":"紅榮",    "ratio":1, "url":"" }
+    ],
+    "case02":[
+    {"name":"a1",    "ratio":20, "url":"" },
+    {"name":"a2",    "ratio":2, "url":"" },
+    {"name":"b1",    "ratio":1, "url":"" },
+    {"name":"b2",    "ratio":1, "url":"" },
+    {"name":"c0",    "ratio":1, "url":"" },
+    {"name":"c0",    "ratio":1, "url":"" }
+    ],
+    "case03":[
+    {"key":"內摳_2",        "msg":"",   "name":"",      "ratio":10, "url":"./img/neko_S.png" },
+    {"key":"聖誕檎",        "msg":"聖誕檎!!",   "name":"聖誕檎",       "ratio":1, "url":"" },
+    {"key":"拍立得(大)_1",  "msg":"",   "name":"拍立得(大)",    "ratio":1, "url":"" },
+    {"key":"內摳_1",        "msg":"",   "name":"",      "ratio":10, "url":"./img/neko_S.png" },
+    {"key":"拍立得(小)",    "msg":"",   "name":"拍立得(小)",    "ratio":3, "url":"" },
+    {"key":"07搖一下",      "msg":"",   "name":"07搖一下",      "ratio":3, "url":"" },
+    {"key":"跳一下",        "msg":"",   "name":"跳一下",    "ratio":5, "url":"" },
+    {"key":"內摳_3",        "msg":"",   "name":"",      "ratio":10, "url":"./img/neko_S.png" },
+    {"key":"卡祖笛_1",      "msg":"",    "name":"卡祖笛",  "ratio":7, "url":"" },
+    {"key":"內摳_4",        "msg":"",   "name":"",      "ratio":10, "url":"./img/neko_S.png" },
+    {"key":"卡祖笛_2",      "msg":"",     "name":"卡祖笛",  "ratio":7, "url":"" },
+    {"key":"食物籤筒_1",    "msg":"",       "name":"食物籤筒",  "ratio":6, "url":"" },
+    {"key":"內摳_5",        "msg":"",   "name":"",      "ratio":10, "url":"./img/neko_S.png" },
+    {"key":"食物籤筒_2",    "msg":"",       "name":"食物籤筒",  "ratio":6, "url":"" },
+    {"key":"拍立得(大)_2",  "msg":"",   "name":"拍立得(大)",    "ratio":1, "url":"" },
+    {"key":"內摳_6",        "msg":"",   "name":"",      "ratio":10, "url":"./img/neko_S.png" }
+    ]
+}

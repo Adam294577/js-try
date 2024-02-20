@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>    
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="Box flex flex-wrap justify-around mx-auto w-[90%] mt-16">
+            <div class="animate__animated animate__fadeInUp w-[45%]  border-2 border-white" :style="[{'animation-delay': BoxDelay.data[0].time}]">
+                <button class="bg-white p-2 rounded-md w-[100px]">點我</button>
+                <div :class="['w-[200px]', 'mx-auto', 'text-4xl', 'text-white', 'mt-2', 'text-center' ,'animate__rubberBand',{'animate__animated' : BoxDelay.data[0].act}] " :style="[{'animation-delay': rubberBand_Delay}]">測試文字</div>
+            </div>
+            <div class="animate__animated animate__fadeInUp w-[45%]  border-2 border-white" :style="[{'animation-delay': BoxDelay.data[1].time}]">
+                <button class="bg-white p-2 rounded-md w-[100px]">點我</button>
+                <div :class="['w-[200px]', 'mx-auto', 'text-4xl', 'text-white', 'mt-2', 'text-center' ,'animate__rubberBand',{'animate__animated' : BoxDelay.data[1].act}] " :style="[{'animation-delay': rubberBand_Delay}]">測試文字</div>
+            </div>
+            <div class="animate__animated animate__fadeInUp w-[45%]  border-2 border-white mt-8" :style="[{'animation-delay': BoxDelay.data[2].time}]">
+                <button class="bg-white p-2 rounded-md w-[100px]">點我</button>
+                <div :class="['w-[200px]', 'mx-auto', 'text-4xl', 'text-white', 'mt-2', 'text-center' ,'animate__rubberBand',{'animate__animated' : BoxDelay.data[2].act}] " :style="[{'animation-delay': rubberBand_Delay}]">測試文字</div>
+            </div>
+            <div class="animate__animated animate__fadeInUp w-[45%]  border-2 border-white mt-8" :style="[{'animation-delay': BoxDelay.data[3].time}]">
+                <button class="bg-white p-2 rounded-md w-[100px]">點我</button>
+                <div :class="['w-[200px]', 'mx-auto', 'text-4xl', 'text-white', 'mt-2', 'text-center' ,'animate__rubberBand',{'animate__animated' : BoxDelay.data[3].act}] " :style="[{'animation-delay': rubberBand_Delay}]">測試文字</div>
+            </div>
+        </div>
+        <div class="Box mt-10">
+           <p class="text-white"> 測試點擊按鈕</p>
+           <div :class="[{ shake: disabled },'text-white border-2']">
+            <button @click="warnDisabled">Click me</button>
+            <span v-if="disabled">This feature is disabled!</span>
+          </div>
+        </div>
+
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>

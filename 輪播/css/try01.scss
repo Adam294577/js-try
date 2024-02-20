@@ -1,0 +1,26 @@
+swiper-container{
+    border: 1px solid #F00;
+    height: 40vh;
+    margin-top: 10vh;
+    swiper-slide{
+        
+        color: #FFF;
+        border: 1px solid #FF0;
+        position: relative;
+        i{
+            display: block;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            width: 100%;
+            font-size: 27px;
+        }
+        img{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 1rem;
+        }
+    }
+}

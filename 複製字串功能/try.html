@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>複製字串按鈕</title>
+</head>
+<body>
+
+  <button id="copyButton">複製字串</button>
+
+  <script>
+    document.getElementById('copyButton').addEventListener('click', function() {
+      // 創建一個文本區域元素
+      let textArea = document.createElement('textarea');
+      
+      // 設置該文本區域的值為欲複製的字串
+      textArea.value = '61001700816176';
+      
+      // 將文本區域元素添加到文檔中
+      document.body.appendChild(textArea);
+      
+      // 選中文本區域的內容
+      textArea.select();
+      
+      // 嘗試複製選中的文本
+      document.execCommand('copy');
+      
+      // 刪除添加的文本區域元素
+      document.body.removeChild(textArea);
+      
+      // 提示用戶複製成功
+      alert('已複製字串: 61001700816176');
+    });
+  </script>
+
+</body>
+</html>

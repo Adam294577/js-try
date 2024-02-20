@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽獎機</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div id="app">
+        <div class="nav">
+            <li v-for="list in CaseBox.data"
+            :key="list.msg"
+            :data-key="list.msg"
+            @click="handCase"
+            >
+                {{list.msg}}
+            </li>
+        </div>
+       <div class="turntable">
+            <div 
+            :class="['circle',{'active': awardIs === list.key} ]"
+            v-for="list in awardRender"
+            :key="list.key"
+            :style="(list.val > 180) ? 
+            `transform: rotate(${list.pos}deg); overflow: visible; ` :
+            `transform: rotate(${list.pos}deg); overflow: hidden;` "
+            >
+            <!-- <div class="circle test1"> -->
+                <div class="awardRegion_1"
+                :style="`transform: rotate(${-90 + list.val}deg);`"
+                >
+                    
+                </div>
+                <div class="awardRegion_2"
+                :style="(list.val > 180) ? 
+                `transform: rotate(90deg);` :
+                `transform: rotate(-90deg);`"
+                >
+
+                </div>
+                <div class="awardCont"
+                :style="`transform: rotate(${list.val / 2}deg); font-size: ${Math.min(list.val,27)}px`"
+                >
+                <img :src="list.url" alt="">
+                <br>
+                    <span>{{list.name}}</span>
+                </div>                
+            </div>
+           
+            <div class="pointer"
+            :style="[{'transform': `translate(-50%,-50%) rotate(${nowAngle}deg)`}]"
+            ></div>
+            <div class="press" @click="PlayingFn">
+                <span>轉</span>
+            </div>            
+       </div>
+       <div class="result">
+        <span>抽到了</span>
+        <span>msg</span>
+        <img :src="" alt="">
+       </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
+
+
+
+

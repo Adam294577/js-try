@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="week text-white flex justify-center flex-wrap">
+            <li class="border-2 w-[14%] py-4 text-xl font-bold text-center">日</li>
+            <li class="border-2 w-[14%] py-4 text-xl font-bold text-center">一</li>
+            <li class="border-2 w-[14%] py-4 text-xl font-bold text-center">二</li>
+            <li class="border-2 w-[14%] py-4 text-xl font-bold text-center">三</li>
+            <li class="border-2 w-[14%] py-4 text-xl font-bold text-center">四</li>
+            <li class="border-2 w-[14%] py-4 text-xl font-bold text-center">五</li>
+            <li class="border-2 w-[14%] py-4 text-xl font-bold text-center">六</li>
+        </div>
+        <div class="day text-white flex justify-center flex-wrap" :data-test="daysRender">
+            <!-- <li class="border-2 w-[14%] py-8 text-center">1</li> -->
+            <li class="border-2 w-[14%] py-8 text-center"
+            v-for="day in daysRender" :key="day"
+            >{{day.msg}}</li>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

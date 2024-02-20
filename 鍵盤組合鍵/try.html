@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ctrl + / Demo</title>
+  <style>
+    #message {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #f0f0f0;
+      font-size: 1.5rem;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+<div id="message">shift +  Ctrl + / Pressed!</div>
+
+<!-- <script>
+let ctrlPressed = false;
+
+document.addEventListener('keydown', function(event) {
+  // 检查是否按下了Ctrl键
+  if (event.key === 'Control') {
+    ctrlPressed = true;
+  }
+
+  // 检查是否按下了/
+  if (ctrlPressed && event.key === '/') {
+    // 显示消息
+    document.getElementById('message').style.display = 'block';
+
+    // 阻止默认行为，防止浏览器执行Ctrl + /的默认操作
+    event.preventDefault();
+  }
+});
+
+document.addEventListener('keyup', function(event) {
+  // 检查是否释放了Ctrl键
+  if (event.key === 'Control') {
+    ctrlPressed = false;
+  }
+
+  // 隐藏消息
+  document.getElementById('message').style.display = 'none';
+});
+</script> -->
+<script>
+    let crtlBool = false
+    let shiftBool = false
+    let message = document.getElementById('message')
+    document.addEventListener('keydown',(e)=>{
+        console.log(e.keyCode);
+        // 若有按下shift
+        if(e.keyCode === 16){
+             console.log('shiftBool-on');
+             shiftBool = true
+        }
+        // 若有按下ctrl 
+        if(e.keyCode === 17){
+             console.log('ctrlBool-on');
+            crtlBool = true
+        }
+        // 若最後是按下 / 顯示訊息
+        if(e.keyCode === 111 && crtlBool && shiftBool){
+            message.style.display = 'block'
+        }
+
+    })
+    document.addEventListener('keyup',(e)=>{
+        console.log(e.keyCode);
+        // 若有按下shift
+        if(e.keyCode === 16){
+             console.log('shiftBool-off');
+             shiftBool = false
+        }        
+        // 若有按下ctrl 
+        if(e.keyCode === 17){
+            console.log('ctrlBool-off');
+            crtlBool = false
+        }
+
+        message.style.display = 'none'
+
+    })
+    console.log(typeof['Hi']);
+</script>
+</body>
+</html>

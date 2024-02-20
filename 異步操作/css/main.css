@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  background-color: #222;
+}
+
+button {
+  cursor: pointer;
+  color: #000;
+  width: 100px;
+  background: #FFF;
+  padding: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+p {
+  color: #FFF;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 设置缩略图容器的样式 */
+    .thumbnail-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* 设置缩略图的样式 */
+    .thumbnail {
+      width: 200px; /* 设置缩略图的宽度 */
+      height: auto;
+      transition: transform 0.3s ease-in-out; /* 添加过渡效果 */
+      border: 1px solid #F00;
+      margin: 10rem;
+      transform: scale(2);
+    }
+
+    /* 设置放大镜的样式 */
+    .zoom {
+      position: fixed;
+      width: 100px; /* 设置放大镜的宽度 */
+      height: 100px; /* 设置放大镜的高度 */
+      border: 2px solid #ccc;
+      /* display: none; */
+    }
+  </style>
+</head>
+<body>
+
+<div class="thumbnail-container" onmousemove="zoomIn(event)" onmouseleave="zoomOut()">
+  <!-- 缩略图 -->
+  <img src="./test.png" alt="Thumbnail" class="thumbnail">
+
+  <!-- 放大镜 -->
+  <div class="zoom" id="zoom"></div>
+</div>
+
+<script>
+  function zoomIn(event) {
+    // 获取缩略图和放大镜元素
+    const thumbnail = document.querySelector('.thumbnail');
+    const zoom = document.getElementById('zoom');
+
+    // 计算放大镜的位置
+    const x = event.clientX - thumbnail.offsetLeft - zoom.offsetWidth / 2;
+    const y = event.clientY - thumbnail.offsetTop - zoom.offsetHeight / 2;
+
+    // 计算放大比例
+    const scale = 2; // 可根据需要调整放大比例
+
+    // 设置放大镜的样式
+    zoom.style.backgroundImage = `url('${thumbnail.src}')`;
+    zoom.style.backgroundSize = `${thumbnail.width * scale}px ${thumbnail.height * scale}px`;
+    zoom.style.transform = `scale(${scale})`;
+    zoom.style.left = `${x}px`;
+    zoom.style.top = `${y}px`;
+    zoom.style.display = 'block';
+
+    // 隐藏原始缩略图
+    thumbnail.style.opacity = '0.5';
+  }
+
+  function zoomOut() {
+    // 获取缩略图和放大镜元素
+    const thumbnail = document.querySelector('.thumbnail');
+    const zoom = document.getElementById('zoom');
+
+    // 恢复原始缩略图的样式
+    thumbnail.style.opacity = '1';
+
+    // 隐藏放大镜
+    zoom.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

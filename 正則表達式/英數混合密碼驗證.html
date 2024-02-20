@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test{
+            width: 300px;
+            padding: 1rem 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>測試密碼是否符合</h1>
+    <input id="test" type="text" placeholder="密碼輸入要8~12碼英數混合 ">
+    <script>
+        const InputEl = document.querySelector('#test')
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,12}$/
+        let password = ""
+        InputEl.addEventListener("keyup",(e)=>{
+            password = e.target.value
+        })
+ 
+        const summitPassword = () =>{
+        if (passwordRegex.test(password)) {
+            alert("密碼符合條件")
+            // console.log("密碼符合條件");
+            } else {
+                alert("密碼不符合條件")
+            }
+            password = ""
+            InputEl.value =""
+        }
+        window.addEventListener("keydown",(e)=>{
+            if(e.keyCode === 13){
+                summitPassword()
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

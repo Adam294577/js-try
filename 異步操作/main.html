@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div id="app">
+        <div class="test" :data-t="testRender"></div>
+
+        <div>
+            <button @click="startAsyncOperation">測試</button>
+            <!-- 显示异步操作的结果 -->
+            <div v-if="dataArr.data.length > 0">
+              <p v-for="item in dataArr.data" :key="item">{{ item.city }}</p>
+            </div>
+          </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Scroll</title>
+  <style>
+    #scrollableDiv {
+      height: 500px;
+      /* overflow: hidden; */
+      /* overflow-y: scroll; */
+      border: 1px solid #ccc;
+    }
+
+    .content {
+      height: 600px;
+      width: 100%;
+      background-color: #f0f0f0;
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+<div id="scrollableDiv">
+  <div class="content">
+    <!-- Your content goes here -->
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+    <p>測試內容</p>
+  </div>
+</div>
+
+<script>
+  const scrollableDiv = document.getElementById('scrollableDiv');
+  const content = document.querySelector('.content');
+  let translateYValue = 0;
+
+  // Prevent default scroll behavior
+  scrollableDiv.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    
+    // Calculate the new translateY value based on scroll direction
+    if (e.deltaY > 0) {
+      translateYValue += 50; // Adjust this value based on your needs
+    } else {
+      translateYValue -= 50; // Adjust this value based on your needs
+    }
+
+    // Apply the new transform value to the content
+    content.style.transform = `translateY(${translateYValue}px)`;
+  });
+</script>
+
+</body>
+</html>

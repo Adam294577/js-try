@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div id="app">
+        <div class="SwiperContainer"
+        :style="`max-width: ${swiperItemWidth}px;`"
+        >
+
+            <div class="content">
+                <div class="navBtn">
+                    <span data-swiper="prev" @click="handnSwiperNavBtn"> &lt; prev </span>
+                    <span data-swiper="next" @click="handnSwiperNavBtn"> &gt; next </span>
+                </div>
+                
+                <div 
+                v-for="list in swiperRender"
+                :key="list.msg"
+                :data-idx="list.idx" 
+                :ref="(el)=>swiperItem.push(el)"
+                :class="['card',{'prev': list.status === 'prev'},{'next': list.status === 'next'},{'active': list.status === 'active'}]">
+                <img :src="list.url" alt="">
+                <span>{{list.msg}}</span>
+                </div>
+
+            </div>
+
+            <div class="pageBtn" v-if="false">
+                <li><span>01</span></li>
+                <li><span>02</span></li>
+                <li><span>03</span></li>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
+

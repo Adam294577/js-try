@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逐字顯示文字</title>
+    <style>
+        #output {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="showText()">點擊我</button>
+<div id="output"></div>
+
+<script>
+    function showText() {
+        var text = "你好，我是ChatGPT，很高興與你對話。\n";
+        var output = document.getElementById("output");
+        var index = 0;
+        output.textContent = "";
+
+        function displayNext() {
+            if (index < text.length) {
+                output.textContent += text.charAt(index);
+                index++;
+                setTimeout(displayNext, 50); // 設定延遲時間，控制文字逐字顯示的速度
+            }
+        }
+
+        displayNext();
+    }
+</script>
+
+</body>
+</html>
