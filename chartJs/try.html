@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            color: rgb(255, 117, 117);
+        }
+        .myChartBox{
+            position: relative;
+            margin: 0 auto;
+            width: 80vw;
+            height: 50vh;
+            top:3rem
+        }
+        #myChart{
+            border: 1px solid #F00;
+        }
+        body{
+            background: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="myChartBox">
+        <canvas id="myChart" width="400" height="200" aria-label="星火數"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        Chart.defaults.color = '#999';
+        const ctx = document.getElementById('myChart');
+        const labels = ['50次以下','50次','100次','150次','200次','250次','300次以上'];
+        const LineData = {
+        labels: labels,
+        datasets: [
+            {
+            label: '星火顆數',
+            data: [77, 207, 527, 727, 527, 207, 77],
+            fill: false,
+            borderColor: '#EEE',
+            backgroundColor: '#EEE',
+            borderWidth:1,
+            tension: 0.4
+        },
+    ]
+        };  
+        const LineOptions = {
+                maintainAspectRatio:false,
+                scales: {
+                    y: {
+                      stacked: true,
+                      grid: {
+                        display: true,
+                        color: "rgba(255,99,132,0.2)"
+                      },
+                    },
+                    x: {
+                      grid: {
+                        display: false
+                      },
+                    }
+                },
+                layout: {
+                    padding: 10
+                },
+                color: '#FFF',
+                plugins: {
+
+                }
+                
+                              
+            }
+        new Chart(ctx, {
+            type: 'line',
+            data: LineData,
+            options: LineOptions
+        });     
+
+        //   抓取最大值:
+        //   抓取最小值:
+        //   平均值:?
+        //   級距:?
+   
+    </script>
+</body>
+</html>
