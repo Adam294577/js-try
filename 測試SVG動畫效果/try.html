@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @keyframes shake1 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(5px, 5px); }
+            50% { transform: translate(0, 0); }
+            75% { transform: translate(-5px, -5px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes shake2 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-5px, 5px); }
+            50% { transform: translate(0, 0); }
+            75% { transform: translate(5px, -5px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes shake3 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(5px, -5px); }
+            50% { transform: translate(0, 0); }
+            75% { transform: translate(-5px, 5px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes shake4 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-5px, -5px); }
+            50% { transform: translate(0, 0); }
+            75% { transform: translate(5px, 5px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .svg1 path:nth-child(1) {
+            animation: shake1 2s infinite;
+        }
+
+        .svg1 path:nth-child(2) {
+            animation: shake2 2s infinite;
+        }
+
+        .svg1 path:nth-child(3) {
+            animation: shake3 2s infinite;
+        }
+
+        .svg1 path:nth-child(4) {
+            animation: shake4 2s infinite;
+        }
+
+        /* menu動畫測試 */
+        .svg3 path {
+  transition: all 0.5s;
+}
+
+.svg3:hover path {
+  fill: #FF054F;
+}
+
+.svg3 path:nth-child(3) {
+}
+
+.svg3:hover path:nth-child(3) {
+    d: path('M3 8V6C9 7 14  4 21 6V8C15 7 10 10 3 8Z');
+}      
+
+
+
+    </style>
+</head>
+<body>
+    <!-- 讓微軟的SVG動起來 -->
+    <svg class="svg1" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256">
+        <path fill="#F1511B" d="M121.666 121.666H0V0h121.666z"/>
+        <path fill="#80CC28" d="M256 121.666H134.335V0H256z"/>
+        <path fill="#00ADEF" d="M121.663 256.002H0V134.336h121.663z"/>
+        <path fill="#FBBC09" d="M256 256.002H134.335V134.336H256z"/>
+    </svg>
+
+    <!--menu -->
+    <svg class="svg2" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+        <path fill="#79508b" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z"/>
+    </svg>    
+    <!-- 利用這工具 轉換成3個SVG 以便各自做動畫效果 -->
+    <!-- https://yqnn.github.io/svg-path-editor/ -->
+    <!-- menu變化前 -->
+    <svg class="svg3" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+        <path fill="#79508b" d="M3 18V16H21V18Z"/>
+        <path fill="#79508b" d="M3 13V11H21V13Z"/>
+        <path fill="#79508b" d="M3 8V6H21V8Z"/>
+    </svg> 
+    <!-- menu變化後 -->
+    <svg class="svg4" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+        <path fill="#FF054F" d="M3 18V16H21V18Z"/>
+        <path fill="#FF054F" d="M3 13V11H21V13Z"/>
+        <path fill="#FF054F" d="M3 8V6C9 7 14 4 21 6V8C15 7 10 10 3 8Z"/>
+    </svg> 
+    <!-- 製作動畫成果 -->
+    <svg class="svg5" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+        <path fill="#FF054F" d="M3 18V16H21V18Z"/>
+        <path fill="#FF054F" d="M3 13V11H21V13Z"/>
+        <path fill="#FF054F" d="M3 8V6C9 7 14 4 21 6V8C15 7 10 10 3 8Z"/>
+    </svg> 
+
+
+</body>
+</html>
+
+
+
+
+

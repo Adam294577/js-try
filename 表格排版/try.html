@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(6, 30px);
+      grid-template-rows: repeat(6, 30px);
+      gap: 1px; /* 可以根據需要調整格子之間的間距 */
+    }
+    .grid-item{
+        width: 30px;
+        height: 30px;
+        border: 1px solid #000;
+        outline: 1px solid #F00;
+        box-sizing: border-box;
+    }
+
+    /* .grid-item {
+  width: 30px;
+  height: 30px;
+  border-left: 1px solid #000;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  box-sizing: border-box;
+}
+.NotLastRow{
+    border-bottom: 0;
+}
+.RowLast{
+    border-right: 1px solid #000;
+} */
+  </style>
+</head>
+<body>
+
+  <div class="grid-container">
+    <!-- 第一行 -->
+    <div class="grid-item NotLastRow">1</div>
+    <div class="grid-item NotLastRow">2</div>
+    <div class="grid-item NotLastRow">3</div>
+    <div class="grid-item NotLastRow">4</div>
+    <div class="grid-item NotLastRow">5</div>
+    <div class="grid-item NotLastRow RowLast">6</div>
+
+    <!-- 第二行以此類推... -->
+    <div class="grid-item NotLastRow">7</div>
+    <div class="grid-item NotLastRow">8</div>
+    <div class="grid-item NotLastRow">9</div>
+    <div class="grid-item NotLastRow">10</div>
+    <div class="grid-item NotLastRow">11</div>
+    <div class="grid-item NotLastRow RowLast">12</div>
+    <!-- 第三航... -->
+    <div class="grid-item NotLastRow">13</div>
+    <div class="grid-item NotLastRow">14</div>
+    <div class="grid-item NotLastRow">15</div>
+    <div class="grid-item NotLastRow">16</div>
+    <div class="grid-item NotLastRow">17</div>
+    <div class="grid-item NotLastRow RowLast">18</div>
+    <!-- 第四航... -->
+    <div class="grid-item">19</div>
+    <div class="grid-item">20</div>
+    <div class="grid-item">21</div>
+    <div class="grid-item">22</div>
+    <div class="grid-item">23</div>
+    <div class="grid-item RowLast">24</div>
+
+  </div>
+
+</body>
+</html>

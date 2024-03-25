@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./menu.css">
+    <style>
+        body{
+  background-color: #3399cc;
+}
+.container{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.st0, .st1{
+  fill:none;
+  stroke:#ffffff;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke-dashoffset: -0;
+  stroke-dasharray: 28 100;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.st0{
+  transition: stroke-dashoffset .3s ease-in-out 0s, stroke-dasharray .3s ease-in-out 0s;
+}
+
+.st1{
+  transition: stroke-dashoffset .2s ease-in-out .2s, stroke-dasharray .2s ease-in-out .2s;
+}
+
+.container.active .st0{
+  stroke-dashoffset: -29;
+  stroke-dasharray: 80 200;
+  transition: stroke-dashoffset .4s ease-in-out .2s, stroke-dasharray .6s ease-in-out .2s;
+}
+
+.container.active .st1{
+  stroke-dashoffset: -15;
+  stroke-dasharray: 0 100;
+  transition: stroke-dashoffset .4s ease-in-out, stroke-dasharray .4s ease-in-out;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <?xml version="1.0" encoding="utf-8"?>
+      <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 31.8 30.8" style="enable-background:new 0 0 31.8 30.8;" xml:space="preserve">
+      <polyline id="XMLID_56_" class="st0" points="2.2,29.5 30.4,29.5 2.2,1.2 "/>
+      <polyline id="XMLID_4_" class="st0" points="2.2,1.2 30.4,1.2 2.2,29.5 "/>
+      <line id="XMLID_32_" class="st1" x1="2.2" y1="15.4" x2="30.4" y2="15.4"/>
+      </svg>
+
+      </div>
+      <button class="menu">
+        <svg viewBox="0 0 64 48">
+            <path d="M19,15 L45,15 C70,15 58,-2 49.0177126,7 L19,37"></path>
+            <path d="M19,24 L45,24 C61.2371586,24 57,49 41,33 L32,24"></path>
+            <path d="M45,33 L19,33 C-8,33 6,-2 22,14 L45,37"></path>
+        </svg>
+    </button>
+      <script>
+            let menu= document.querySelector( ".container" );
+
+            menu.addEventListener("click", function(){
+            this.classList.toggle('active');
+            });
+            document.querySelectorAll('.menu').forEach(btn => {
+              btn.addEventListener('click', e => {
+              btn.classList.toggle('active');
+            });
+          });
+        
+      </script>
+</body>
+</html>
