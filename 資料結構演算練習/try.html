@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+    function binarySearch(arr, target, key) {
+      let left = 0;
+      let right = arr.length - 1;
+
+      while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (arr[mid][key] === target) {
+          return arr[mid];
+        } else if (arr[mid][key] < target) {
+          left = mid + 1;
+        } else {
+          right = mid - 1;
+        }
+      }
+
+      return null;
+    }
+
+    const data = [
+      { aCode: 1, b: "str1", c: "str2", d: { DD1: "R", DD9: "S", DD17: "R" } },
+      {
+        aCode: 3,
+        b: "str8",
+        c: "str10",
+        d: { DD7: "S", DD27: "R", DD37: "S" },
+      },
+      {
+        aCode: 5,
+        b: "str15",
+        c: "str20",
+        d: { DD1: "S", DD9: "R", DD17: "S" },
+      },
+    ];
+
+    const data2 = [
+      { aCode: 1, aName: "AAA" },
+      { aCode: 2, aName: "ABC" },
+      { aCode: 3, aName: "ADD" },
+      { aCode: 4, aName: "ADDSSS" },
+      { aCode: 5, aName: "ADDSsaSS" },
+      { aCode: 6, aName: "ADDSfffSS" },
+      { aCode: 7, aName: "ADDSfffSsdfsS" },
+      { aCode: 8, aName: "ADfffSsdfsS" },
+      { aCode: 9, aName: "ADfffSsdaddfsS" },
+      { aCode: 10, aName: "ADfffSsdaddfsS" },
+    ];
+
+    // 使用 _.keyBy 将 data2 转换为对象，以 aCode 为键
+    const data2ByKey = _.keyBy(data2, "aCode");
+    console.log("data2ByKey", data2ByKey);
+
+    // 遍历 data 数组，将对应的 aName 加入到每个对象中
+    const newData = _.map(data, (item) => {
+      const correspondingItem = data2ByKey[item.aCode];
+      return {
+        aName: correspondingItem ? correspondingItem.aName : null,
+        b: item.b,
+        c: item.c,
+        d: item.d,
+      };
+    });
+
+    const newData2 = data.map((item) => {
+      const correspondingItem = binarySearch(data2, item.aCode, "aCode");
+      return {
+        aName: correspondingItem ? correspondingItem.aName : null,
+        b: item.b,
+        c: item.c,
+        d: item.d,
+      };
+    });
+
+    // 若資料無排序，交叉比對 演算模式=> O(N * M)
+    console.log("1", newData);
+    // 若資料有排序 更優解演算模式 => O(N * logM)
+    console.log("2", newData2);
+    // 如果後端本來就欄位匹配好 => O(1)  (最佳解)
+  </script>
+</html>

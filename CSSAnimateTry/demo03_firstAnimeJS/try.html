@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>first AnimeJS</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <!-- https://www.youtube.com/watch?v=XMhHEVznWEY&list=PL5e68lK9hEzcZLltZrc3NDlKWS3XygchY&index=3 -->
+    <div class="container">
+        <div class="title1">My first</div>
+        <div class="title2">AnimeJS</div>
+    </div>
+
+    <script src="../anime.min.js"></script>
+    <script>
+        let container = document.getElementsByClassName("container")[0]
+        for (let i = 0; i < 100; i++) {
+            let blocks = document.createElement("div")
+            blocks.classList.add("block")
+            container.appendChild(blocks)
+            
+        }
+        function animeFn() {
+            anime({
+                targets : '.block',
+                translateX : ()=>{
+                    return anime.random(1000,-1000)
+                },
+                translateY : ()=>{
+                    return anime.random(500,-500)
+                },
+                scale : ()=>{
+                    return anime.random(1,5)
+                },
+                easing: "linear",
+                duration: 2000,
+                delay: anime.stagger(7),
+                complete: animeFn,
+
+            })
+        }
+        animeFn()
+    </script>
+    
+    
+</body>
+</html>

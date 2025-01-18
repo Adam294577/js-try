@@ -1,0 +1,10 @@
+// app global css in SCSS form
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .test {
+    @apply text-4xl border-2 border-red-600
+  }
+
+}

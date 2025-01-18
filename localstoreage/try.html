@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>測試localStorage</h1>
+
+    <script>
+        const msg = 5207;
+        const msg2 = ["a",'c',{aaa:"207"}]
+        const msg3 = false
+        const msg4 = {a:5207}
+        const msg5 = "07"
+        console.log(msg5);
+        const msg6 = null
+        const msg7 = undefined
+        const LocalStorageSetItem = (key,val) =>{
+            const ValType = typeof val
+            if(ValType === "undefined") return console.warn('undefined');
+            const parseVal =  JSON.stringify(val)
+                localStorage.setItem(key,parseVal)
+           
+        }
+        const LocalStorageGetItem = (key)=>{
+            return JSON.parse(localStorage.getItem(key))
+        }
+        
+
+        // localStorage.setItem("test",msg)
+        // localStorage.setItem("test2",msg2)
+        // localStorage.setItem("test3",msg3)
+        // console.log(JSON.parse(localStorage.getItem("test")));
+        // console.log(JSON.parse(localStorage.getItem("test2")));
+        // console.log(JSON.parse(localStorage.getItem("test3")));
+        // localStorage.clear();
+        // console.log(JSON.parse(localStorage.getItem("test")));
+        LocalStorageSetItem('測試存中文',msg);
+        LocalStorageSetItem('t2',msg2);
+        LocalStorageSetItem('t3',msg3);
+        LocalStorageSetItem('t4',msg4);
+        LocalStorageSetItem('t5',msg5);
+        LocalStorageSetItem('t6',msg6);
+        LocalStorageSetItem('t7',msg7);
+        // console.log(GetValueToLocalStorage(msg));
+        // console.log(GetValueToLocalStorage(msg2));
+        // console.log(GetValueToLocalStorage(msg3));
+        // console.log(GetValueToLocalStorage(msg4));
+        // console.log(GetValueToLocalStorage(msg5));
+        console.log(localStorage);
+        Object.entries(localStorage).forEach(([key, value]) => {
+    console.log(`${key} => ${value}`);
+});
+
+    </script>
+     
+
+</body>
+</html>

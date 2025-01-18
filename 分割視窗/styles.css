@@ -1,0 +1,39 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pane {
+  flex: 1;
+  overflow: auto;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+}
+
+.top-pane {
+  background-color: #e1f5fe;
+}
+
+.bottom-pane {
+  background-color: #ffecb3;
+}
+
+.divider {
+  background-color: #666;
+  height: 10px;
+  cursor: row-resize;
+  width: 100%;
+}

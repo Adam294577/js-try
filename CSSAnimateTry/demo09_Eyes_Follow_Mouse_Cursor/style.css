@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #CCC;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  height: 100vh;
+}
+
+.face {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  background: #ffdf0e;
+  border-radius: 100%;
+  position: relative;
+  top: 200px;
+}
+.face::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 70px;
+  width: 180px;
+  height: 70px;
+  background-color: #f96868;
+  border-radius: 0 0 100px 100px;
+  transition: 0.2s;
+}
+.face:hover::after {
+  bottom: 80px;
+  width: 180px;
+  height: 20px;
+  background-color: #f96868;
+  border-radius: 0 0 0px 0px;
+}
+.face .eyes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: -15px;
+  top: 80px;
+}
+.face .eyes .eye {
+  margin-left: 30px;
+  width: 100px;
+  height: 100px;
+  background-color: #948e74;
+  border-radius: 100%;
+  position: relative;
+}
+.face .eyes .eye::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+}
+
+.demo {
+  position: absolute;
+  top: 700px;
+}
+.demo img {
+  width: 700px;
+}/*# sourceMappingURL=style.css.map */

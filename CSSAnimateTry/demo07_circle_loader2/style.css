@@ -1,0 +1,210 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+.blackbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #222;
+  opacity: 0.7;
+  filter: blur(0px);
+}
+
+.container {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background-color: #FFF;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+.container .text {
+  position: absolute;
+  z-index: 2;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  font-size: 27px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+.container .text .txt_img {
+  width: 100px;
+  position: relative;
+  top: 5px;
+  left: 3px;
+}
+.container .text .dot {
+  margin-left: 3px;
+  position: relative;
+  animation: moveup ease-in-out 1.98s infinite;
+  animation-delay: calc(var(--j) * 0.33s);
+}
+.container .text .dot .txt_img2 {
+  position: relative;
+  top: -10px;
+  width: 7px;
+}
+@keyframes moveup {
+  0% {
+    top: 0px;
+  }
+  30% {
+    top: -15px;
+  }
+  60% {
+    top: 0px;
+  }
+}
+.container .imgbox {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.container .imgbox img {
+  position: relative;
+  left: -2px;
+  top: -10px;
+  width: 200px;
+}
+.container .imgbox::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  background: url(./皮卡load3.png);
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: 23px -10px;
+  animation: opacityCH 2s linear infinite;
+}
+@keyframes opacityCH {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.container .loader {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, -480%);
+  margin: auto;
+  top: 300px;
+  width: 60px;
+  height: 60px;
+}
+.container .loader span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%) rotate(calc(var(--i) * 45deg));
+}
+@keyframes bgchange {
+  0% {
+    filter: hue-rotate(0);
+  }
+  0% {
+    filter: hue-rotate(360deg);
+  }
+}
+.container .loader span::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  height: 17px;
+  width: 7px;
+  border-radius: 70px;
+  transform: translateX(-50%);
+  animation: colorCh ease-in 1s infinite;
+  animation-delay: calc(var(--i) * 0.125s);
+}
+@keyframes colorCh {
+  0% {
+    background-color: #262626;
+  }
+  12% {
+    background-color: #333333;
+  }
+  25% {
+    background-color: #4c4c4c;
+  }
+  37% {
+    background-color: #666666;
+  }
+  50% {
+    background-color: #7f7f7f;
+  }
+  62% {
+    background-color: #999999;
+  }
+  75% {
+    background-color: #b3b3b3;
+  }
+  87% {
+    background-color: #cccccc;
+  }
+  100% {
+    background-color: #262626;
+  }
+}
+.container .loader .b1::before {
+  background-color: #262626;
+}
+.container .loader .b2::before {
+  background-color: #333333;
+}
+.container .loader .b3::before {
+  background-color: #4c4c4c;
+}
+.container .loader .b4::before {
+  background-color: #666666;
+}
+.container .loader .b5::before {
+  background-color: #7f7f7f;
+}
+.container .loader .b6::before {
+  background-color: #999999;
+}
+.container .loader .b7::before {
+  background-color: #b3b3b3;
+}
+.container .loader .b8::before {
+  background-color: #cccccc;
+}
+
+.demo {
+  width: 200px;
+  height: 200px;
+}/*# sourceMappingURL=style.css.map */

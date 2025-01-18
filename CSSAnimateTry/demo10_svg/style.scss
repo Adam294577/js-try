@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#pic01{
+    border: 1px solid;
+    
+}
+#pic02{
+    margin-left: 100px;
+    border: 1px solid;
+}
+
+#pic03 {
+	width: 240px;
+	border: solid;
+	margin: 10%;
+}
+
+#pic03 .frame_outer {
+	transform: scale(0.5);
+	transition-duration: 2s;
+}
+
+#pic03 .frame_outer:hover {
+	transform: scale(1);
+}
+#pic04{
+    border: 1px solid;
+}
+#pic05{
+    border: 1px solid;
+}
