@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>存儲測試頁面</title>
+    <style>
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 8px 15px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      #result {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        min-height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>存儲測試工具</h1>
+
+      <div class="form-group">
+        <label for="key">鍵值 (Key):</label>
+        <input type="text" id="key" placeholder="請輸入鍵值" />
+      </div>
+
+      <div class="form-group">
+        <label for="value">數據 (Value):</label>
+        <input type="text" id="value" placeholder="請輸入數據" />
+      </div>
+
+      <div class="form-group">
+        <label for="storageType">存儲類型:</label>
+        <select id="storageType">
+          <option value="local">Local Storage</option>
+          <option value="session">Session Storage</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="temporary">是否為臨時存儲:</label>
+        <select id="temporary">
+          <option value="true">是</option>
+          <option value="false">否</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="expires">過期時間 (分鐘):</label>
+        <input type="number" id="expires" value="1" min="1" />
+      </div>
+
+      <div class="form-group">
+        <button onclick="setStorage()">設置存儲</button>
+        <button onclick="getStorage()">獲取數據</button>
+        <button onclick="clearResult()">清除結果</button>
+      </div>
+
+      <div id="result"></div>
+    </div>
+
+    <script type="module">
+      import StorageTimer from './test.js';
+
+      window.setStorage = async function () {
+        const key = document.getElementById('key').value;
+        const value = document.getElementById('value').value;
+        const type = document.getElementById('storageType').value;
+        const temporary = document.getElementById('temporary').value === 'true';
+        const expiresMinutes = parseInt(
+          document.getElementById('expires').value
+        );
+
+        if (!key || !value) {
+          showResult('請輸入鍵值和數據！');
+          return;
+        }
+
+        const item = {
+          key,
+          type,
+          temporary,
+          expires: new Date(
+            Date.now() + expiresMinutes * 60 * 1000
+          ).toISOString(),
+          value,
+        };
+
+        try {
+          StorageTimer.setItem(item);
+          showResult(
+            `數據已存儲！\nKey: ${key}\nValue: ${value}\n過期時間: ${item.expires}`
+          );
+        } catch (error) {
+          showResult('存儲失敗：' + error.message);
+        }
+      };
+
+      window.getStorage = async function () {
+        const key = document.getElementById('key').value;
+        if (!key) {
+          showResult('請輸入要查詢的鍵值！');
+          return;
+        }
+
+        try {
+          const value = await StorageTimer.getItem(key, async () => {
+            showResult('數據已過期！');
+            return null;
+          });
+          showResult(`查詢結果：${JSON.stringify(value, null, 2)}`);
+        } catch (error) {
+          showResult('查詢失敗：' + error.message);
+        }
+      };
+
+      window.clearResult = function () {
+        document.getElementById('result').textContent = '';
+      };
+
+      function showResult(message) {
+        document.getElementById('result').textContent = message;
+      }
+    </script>
+  </body>
+</html>
